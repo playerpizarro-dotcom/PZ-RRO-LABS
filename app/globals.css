@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000;
+  color: #ededed;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* EFECTOS VISUALES */
+
+.smoke,
+.fire-glow,
+.drop,
+.hero-smoke,
+.hero-glow {
+  position: absolute;
+  pointer-events: none;
+}
+
+.smoke,
+.fire-glow,
+.drop {
+  z-index: 50;
+}
+
+.hero-smoke,
+.hero-glow {
+  z-index: 30;
+}
+
+/* HERO FX */
+
+.hero-smoke {
+  width: 260px;
+  height: 260px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.45),
+    transparent 70%
+  );
+  filter: blur(26px);
+  animation: heroSmoke 6s infinite ease-in-out;
+}
+
+.hero-glow {
+  width: 340px;
+  height: 130px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(199, 122, 42, 0.65),
+    transparent 70%
+  );
+  filter: blur(24px);
+  animation: heroGlow 2.8s infinite ease-in-out;
+}
+
+@keyframes heroSmoke {
+  0% {
+    transform: translateY(40px) scale(0.8);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: translateY(-130px) scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes heroGlow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: revealOnScroll linear forwards;
+  animation-timeline: view();
+  animation-range: entry 10% cover 35%;
+}
+
+@keyframes revealOnScroll {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* LEGACY FX */
+
+.smoke {
+  width: 240px;
+  height: 240px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(220, 220, 220, 0.28),
+    transparent 70%
+  );
+  filter: blur(30px);
+  animation: smokeBreath 8s infinite ease-in-out;
+}
+
+.fire-glow {
+  width: 320px;
+  height: 100px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 110, 20, 0.35),
+    transparent 72%
+  );
+  filter: blur(30px);
+  animation: emberBreath 3s infinite ease-in-out;
+}
+
+.drop {
+  display: none;
+}
+
+@keyframes smokeBreath {
+  0% {
+    transform: translateY(40px) scale(0.85);
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 0.48;
+  }
+
+  70% {
+    transform: translateY(-110px) scale(1.25);
+    opacity: 0.28;
+  }
+
+  100% {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+  }
+}
+
+@keyframes emberBreath {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: translateX(-50%) scale(0.95);
+  }
+
+  50% {
+    opacity: 0.42;
+    transform: translateX(-50%) scale(1.06);
+  }
+}

@@ -171,3 +171,57 @@ body {
     transform: translateX(-50%) scale(1.06);
   }
 }
+.reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-image,
+.section-image {
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.hero-image:hover,
+.section-image:hover {
+  transform: scale(1.015);
+  filter: brightness(1.06);
+}
+/* REVEAL ANIMATION */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PREMIUM HOVER */
+
+.hero-image,
+.section-image {
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.hero-image:hover,
+.section-image:hover {
+  transform: scale(1.015);
+  filter: brightness(1.06);
+}

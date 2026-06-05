@@ -49,8 +49,12 @@ export default function Home() {
         </div>
       )}
 
-      <section id="hero" className="relative flex items-center justify-center bg-black pt-24 pb-2 md:min-h-screen md:pt-0 md:pb-0">
-        <img src="/hero-v2.png" alt="Hero" className="h-auto w-full object-contain md:max-h-screen" />
+      <section id="hero" className="relative flex items-center justify-center overflow-hidden bg-black pt-24 pb-2 md:min-h-screen md:pt-0 md:pb-0">
+        <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,0.55)_100%)]" />
+        <div className="pointer-events-none absolute bottom-0 left-1/2 z-10 h-48 w-[70%] -translate-x-1/2 rounded-full bg-[#c77a2a]/20 blur-3xl" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-black via-black/60 to-transparent" />
+
+        <img src="/hero-v2.png" alt="Hero" className="relative z-0 h-auto w-full object-contain md:max-h-screen" />
 
         <div className="absolute bottom-[8%] left-[14%] z-20 flex h-[95px] w-[520px] gap-6">
           <a href="#beats" aria-label="Listen" className="block h-full w-1/2" />
@@ -69,10 +73,7 @@ export default function Home() {
       <section id="store" className="reveal bg-black px-6 py-20 text-[#e7e1d8] md:min-h-screen md:py-28">
         <div className="mx-auto max-w-6xl">
           <p className="mb-6 text-sm tracking-[0.4em] text-[#c77a2a]">/// PZ-RRO LABS</p>
-
-          <h2 className="mb-4 text-4xl font-black tracking-[-0.04em] md:text-8xl">
-            PZ-RRO LIBRARIES
-          </h2>
+          <h2 className="mb-4 text-4xl font-black tracking-[-0.04em] md:text-8xl">PZ-RRO LIBRARIES</h2>
 
           <p className="mb-14 max-w-2xl text-sm leading-7 tracking-[0.12em] text-white/55">
             Exclusive sound libraries crafted for producers who want raw drums, dark textures and premium underground character.
@@ -80,32 +81,21 @@ export default function Home() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {kits.map((kit) => (
-              <div
-                key={kit.name}
-                className="group relative overflow-hidden border border-[#c77a2a]/30 bg-[#070707] p-7 transition-all duration-500 hover:-translate-y-3 hover:border-[#c77a2a] hover:shadow-[0_0_45px_rgba(199,122,42,0.18)]"
-              >
+              <div key={kit.name} className="group relative overflow-hidden border border-[#c77a2a]/30 bg-[#070707] p-7 transition-all duration-500 hover:-translate-y-3 hover:border-[#c77a2a] hover:shadow-[0_0_45px_rgba(199,122,42,0.18)]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#c77a2a]/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 <div className="relative z-10">
                   <div className="mb-10 flex items-center justify-between">
-                    <span className="text-[10px] font-bold tracking-[0.28em] text-[#c77a2a]">
-                      {kit.type}
-                    </span>
-                    <span className="border border-[#c77a2a]/50 px-3 py-1 text-[9px] font-bold tracking-[0.22em] text-[#c77a2a]">
-                      {kit.tag}
-                    </span>
+                    <span className="text-[10px] font-bold tracking-[0.28em] text-[#c77a2a]">{kit.type}</span>
+                    <span className="border border-[#c77a2a]/50 px-3 py-1 text-[9px] font-bold tracking-[0.22em] text-[#c77a2a]">{kit.tag}</span>
                   </div>
 
-                  <h3 className="mb-8 text-4xl font-black tracking-[-0.04em] text-white">
-                    {kit.name}
-                  </h3>
+                  <h3 className="mb-8 text-4xl font-black tracking-[-0.04em] text-white">{kit.name}</h3>
 
                   <div className="mb-8 h-[1px] w-full bg-gradient-to-r from-[#c77a2a] to-transparent" />
 
                   <a
-                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=playerpizarro@gmail.com&su=${encodeURIComponent(
-                      `${kit.name} ACCESS REQUEST`
-                    )}`}
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=playerpizarro@gmail.com&su=${encodeURIComponent(`${kit.name} ACCESS REQUEST`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-[#c77a2a] px-6 py-4 text-xs font-bold tracking-[0.22em] text-black transition-all duration-300 hover:scale-105 hover:bg-[#d89b4f]"

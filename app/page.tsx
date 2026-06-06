@@ -14,26 +14,38 @@ export default function Home() {
 
   return (
     <main className="bg-black">
-      <nav className="fixed left-0 top-0 z-[10000] flex w-full items-center justify-between border-b border-white/10 bg-black/70 px-5 py-4 backdrop-blur-xl md:px-8">
-        <a href="#hero" onClick={closeMenu} className="flex items-center gap-3">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#c77a2a] text-[10px] font-black text-[#c77a2a]">PP</span>
-          <span className="text-xs font-bold tracking-[0.3em] text-[#d8a15b]">PZ-RRO LABS</span>
+      <nav className="fixed left-0 top-0 z-[10000] flex w-full items-center justify-between border-b border-[#c77a2a]/20 bg-black/55 px-5 py-4 backdrop-blur-2xl md:px-8">
+        <a href="#hero" onClick={closeMenu} className="group flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#c77a2a]/70 bg-[#c77a2a]/10 text-[10px] font-black tracking-wider text-[#d8a15b] shadow-[0_0_25px_rgba(199,122,42,0.18)] transition-all duration-300 group-hover:scale-105 group-hover:bg-[#c77a2a] group-hover:text-black">
+            PZ
+          </span>
+          <span className="text-xs font-bold tracking-[0.3em] text-[#d8a15b] transition-colors duration-300 group-hover:text-white">
+            PZ-RRO LABS
+          </span>
         </a>
 
-        <div className="hidden gap-6 text-xs tracking-[0.25em] text-white md:flex">
-          <a href="#drumkits">DRUMKITS</a>
-          <a href="#beats">BEATS</a>
-          <a href="#store">THE VAULT</a>
-          <a href="#soundlab">SOUND LAB</a>
-          <a href="#contact">CONTACT</a>
+        <div className="hidden gap-7 text-xs tracking-[0.25em] text-white/75 md:flex">
+          <a className="transition-colors duration-300 hover:text-[#c77a2a]" href="#drumkits">DRUMKITS</a>
+          <a className="transition-colors duration-300 hover:text-[#c77a2a]" href="#beats">BEATS</a>
+          <a className="transition-colors duration-300 hover:text-[#c77a2a]" href="#store">THE VAULT</a>
+          <a className="transition-colors duration-300 hover:text-[#c77a2a]" href="#soundlab">SOUND LAB</a>
+          <a className="transition-colors duration-300 hover:text-[#c77a2a]" href="#contact">CONTACT</a>
         </div>
 
         <div className="flex items-center gap-3">
-          <a href="#store" onClick={closeMenu} className="border border-[#c77a2a] bg-[#c77a2a] px-4 py-3 text-[10px] font-bold tracking-[0.16em] text-black">
+          <a
+            href="#store"
+            onClick={closeMenu}
+            className="border border-[#c77a2a] bg-[#c77a2a] px-4 py-3 text-[10px] font-bold tracking-[0.16em] text-black shadow-[0_0_25px_rgba(199,122,42,0.22)] transition-all duration-300 hover:scale-105 hover:bg-[#d89b4f]"
+          >
             REQUEST ACCESS
           </a>
 
-          <button type="button" onClick={() => setMenuOpen(!menuOpen)} className="relative z-[10001] border border-white/30 px-3 py-2 text-sm font-bold text-white md:hidden">
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="relative z-[10001] border border-white/30 px-3 py-2 text-sm font-bold text-white md:hidden"
+          >
             {menuOpen ? "×" : "☰"}
           </button>
         </div>
@@ -70,6 +82,25 @@ export default function Home() {
         <img src="/beat-vault.png" alt="Beat Vault" className="h-auto w-full object-contain md:max-h-screen" />
       </section>
 
+      <section className="reveal flex min-h-screen items-center bg-black px-6 py-24 text-[#e7e1d8]">
+        <div className="mx-auto max-w-7xl">
+          <p className="mb-8 text-xs font-bold tracking-[0.45em] text-[#c77a2a]">
+            /// SOUND IDENTITY
+          </p>
+
+          <h2 className="max-w-6xl text-5xl font-black uppercase leading-[0.9] tracking-[-0.06em] text-white md:text-8xl lg:text-9xl">
+            FOR PRODUCERS WHO WANT THEIR OWN SOUND
+          </h2>
+
+          <div className="mt-12 h-[1px] w-full bg-gradient-to-r from-[#c77a2a] via-[#c77a2a]/30 to-transparent" />
+
+          <p className="mt-10 max-w-3xl text-sm leading-8 tracking-[0.16em] text-white/55 md:text-base">
+            Raw drums, dark textures and exclusive sound libraries built for records with identity.
+            No generic presets. No recycled loops. Just character.
+          </p>
+        </div>
+      </section>
+
       <section id="store" className="reveal bg-black px-6 py-20 text-[#e7e1d8] md:min-h-screen md:py-28">
         <div className="mx-auto max-w-6xl">
           <p className="mb-6 text-sm tracking-[0.4em] text-[#c77a2a]">/// PZ-RRO LABS</p>
@@ -91,7 +122,6 @@ export default function Home() {
                   </div>
 
                   <h3 className="mb-8 text-4xl font-black tracking-[-0.04em] text-white">{kit.name}</h3>
-
                   <div className="mb-8 h-[1px] w-full bg-gradient-to-r from-[#c77a2a] to-transparent" />
 
                   <a
